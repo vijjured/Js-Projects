@@ -8,7 +8,7 @@ export const clearResults = () => {
 elements.searchResList.innerHTML='';
 elements.paginationButtons.innerHTML='';
 }
-const limitReceipeTitles = (title,limit=17)=>{
+export const limitReceipeTitles = (title,limit=17)=>{
     const newTitle = [];
    if(title.length>limit){
       title.split(' ').reduce((acc,curr)=>{
