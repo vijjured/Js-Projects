@@ -7,6 +7,8 @@ export const clearRecipe = () => {
 
 const formatCount = count => {
     if (count) {
+        // count = 2.5 --> 5/2 --> 2 1/2
+        // count = 0.5 --> 1/2
         const newCount = Math.round(count * 10000) / 10000;
         const [int, dec] = newCount.toString().split('.').map(el => parseInt(el, 10));
 
@@ -37,7 +39,7 @@ const createIngredient = ingredient => `
 </li>
 `;
 
-export const renderRecipe = (recipe,isLiked) => {
+export const renderRecipe = recipe => {
 const markup = `
 <figure class="recipe__fig">
 <img src="${recipe.img}" alt="${recipe.title}" class="recipe__img">
@@ -77,7 +79,7 @@ const markup = `
 </div>
 <button class="recipe__love">
     <svg class="header__likes">
-        <use href="img/icons.svg#icon-heart${isLiked ? '' :'-outlined'}"></use>
+        <use href="img/icons.svg#icon-heart-outlined"></use>
     </svg>
 </button>
 </div>
